@@ -33,7 +33,34 @@ export default function LoginPage() {
         }
     }
 
-    return(
+    const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        setLoading(true)
+        setErrorMessage(null)
+        setSuccessMessage(null)
+
+        try {
+            const { error } = await supabase.auth.signInWithPassword({
+                email,
+                password
+            })
+
+            if (error) {
+                setErrorMessage(error.message)
+                setLoading(false)
+            } else {
+                router.push('/')
+                router.refresh()
+            }
+        } catch (err: unknown) {
+            console.error('Login network/execution error:', err)
+            setErrorMessage('An unexpected network error occurred. Please try again.')
+            setLoading(false)
+        }
+    }
+
+
+    return (
         <></>
     )
 }
