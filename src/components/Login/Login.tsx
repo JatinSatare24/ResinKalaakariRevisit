@@ -59,6 +59,37 @@ export default function LoginPage() {
         }
     }
 
+    const handleForgotPassword = async (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault()
+
+        if (!email) {
+            setErrorMessage('Please enter your email address first so I know where to send the link!')
+            return
+        }
+
+        setLoading(true)
+        setErrorMessage(null)
+        setSuccessMessage(null)
+
+        try {
+            const { error } = await supabase.auth.resetPasswordForEmail(email,
+                {
+                    redirectTo: `${window.location.origin}/auth/reset-password`
+                })
+
+            if (error) {
+                setErrorMessage(error.message)
+            } else {
+                setSuccessMessage('Check your inbox! I’ve sent a password reset link.')
+            }
+        } catch (err) {
+            console.error('Password reset network/execution error:', err)
+            setErrorMessage('An unexpected error occurred while requesting the reset link.')
+        } finally {
+            setLoading(false)
+        }
+    }
+
 
     return (
         <></>
