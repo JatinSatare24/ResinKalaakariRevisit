@@ -1,0 +1,105 @@
+/* =========================================
+   SEARCH BAR COMPONENT STYLES
+========================================= */
+
+/* --- BASE WRAPPER --- */
+.wrapper {
+  position: relative;
+  width: 60%;
+  max-width: 480px;
+  margin: 12px auto;
+}
+
+/* --- INPUT FIELD --- */
+.input {
+  width: 100%;
+  padding: 10px 42px 10px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  font-size: 15px;
+  color: #111827;
+  background-color: #ffffff;
+  outline: none;
+  transition: opacity 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input::placeholder {
+  color: #9ca3af;
+}
+
+.input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+/* --- PENDING / LOADING STATES --- */
+.inputPending {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Status Indicator (e.g., Loading...) */
+.status {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: #9ca3af;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* ===============================
+   RESPONSIVE: TABLET (≥ 768px)
+================================= */
+@media (min-width: 768px) {
+  .wrapper {
+    width: 50%;
+    margin: 15px auto 30px;
+  }
+
+  .input {
+    font-size: 16px;
+    padding: 12px 44px 12px 18px;
+  }
+
+  .status {
+    font-size: 13px;
+  }
+}
+
+/* ===============================
+   RESPONSIVE: DESKTOP (≥ 1024px)
+================================= */
+@media (min-width: 1024px) {
+  .wrapper {
+    width: 40%;
+    max-width: 520px;
+    margin: 20px auto 20px;
+  }
+
+  .input {
+    font-size: 20px;
+    padding: 12px 46px 12px 20px;
+  }
+
+  .status {
+    right: 16px;
+    font-size: 13px;
+  }
+}
+
+/* ===============================
+   RESPONSIVE: LARGE SCREENS (≥ 1280px)
+================================= */
+@media (min-width: 1280px) {
+  .wrapper {
+    margin: 3rem auto 1rem;
+    width: 25%;
+  }
+
+  .input {
+    font-size: 1.7rem;
+  }
+}
