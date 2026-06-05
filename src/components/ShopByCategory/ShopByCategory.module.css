@@ -1,0 +1,222 @@
+/* =========================================
+   SHOP BY CATEGORY COMPONENT STYLES
+========================================= */
+
+/* --- BASE LAYOUT (MOBILE FIRST) --- */
+.shopByCategoryContainer {
+  padding: 1rem 1rem;
+  text-align: center;
+  background: #ffffff;
+}
+
+/* --- HEADING UPGRADE --- */
+.heading {
+  font-family: var(--font-playfair);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a202c;
+  letter-spacing: -0.5px;
+  position: relative;
+  display: inline-block;
+
+}
+
+/* --- GRID LAYOUT --- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+/* Center the last card if odd number of categories (Mobile) */
+.grid a:last-child:nth-child(odd) {
+  grid-column: span 2;
+  justify-self: center;
+  width: 70%;
+}
+
+/* --- CATEGORY CARDS --- */
+.categoryCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  border-radius: 50px;
+  /* Fully rounded capsule */
+  background: linear-gradient(135deg, #ffffff 0%, #fdfbf7 100%);
+  /* Subtle gold tint */
+  color: #1a202c;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid #e2e8f0;
+  /* "Soft Glow" shadow */
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+/* --- HOVER EFFECTS --- */
+.categoryCard:hover {
+  transform: translateY(-5px);
+  /* Gold border glow on hover */
+  border-color: #D4AF37;
+  background: #ffffff;
+  color: #D4AF37;
+  box-shadow: 0 12px 24px rgba(212, 175, 55, 0.15);
+}
+
+.categoryCard:hover::before {
+  content: '•';
+  margin-right: 8px;
+  color: #D4AF37;
+}
+
+/* --- MESSAGES --- */
+.message {
+  text-align: center;
+  color: #6b7280;
+  padding: 1rem 0;
+}
+
+/* --- VIEW ALL BUTTON --- */
+.viewAllContainer {
+  display: grid;
+  grid-column: 1 / -1;
+  width: 40%;
+  margin: 1rem auto 0;
+  text-align: center;
+}
+
+.viewAllButton {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.7rem;
+  border-radius: 999px;
+  background-color: #6b46c1;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.2px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(107, 70, 193, 0.2);
+}
+
+.viewAllButton:hover {
+  background-color: #553c9a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(107, 70, 193, 0.3);
+}
+
+.viewAllButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(107, 70, 193, 0.2);
+}
+
+.icon {
+  transition: transform 0.2s ease;
+}
+
+.viewAllButton:hover .icon {
+  transform: translateX(4px);
+}
+
+/* ===============================
+   RESPONSIVE: TABLET (≥ 768px)
+================================= */
+@media (min-width: 768px) {
+  .shopByCategoryContainer {
+    padding: 2rem 2rem 4rem;
+  }
+
+  .heading {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* Reset mobile centering behavior */
+  .grid a:last-child:nth-child(odd) {
+    grid-column: auto;
+    width: 100%;
+    justify-self: stretch;
+  }
+
+  .categoryCard {
+    padding: 1.4rem;
+    font-size: 1rem;
+  }
+
+  .viewAllContainer {
+    width: 22%;
+  }
+
+  .viewAllButton {
+    font-size: 1rem;
+    padding: 0.7rem 0.3rem;
+    margin-top: 1rem;
+  }
+}
+
+/* ===============================
+   RESPONSIVE: DESKTOP (≥ 1024px)
+================================= */
+@media (min-width: 1024px) {
+  .shopByCategoryContainer {
+    padding: 1.5rem 2rem 3rem;
+    /* max-width: 1200px; */
+    margin: 0 auto;
+  }
+
+  .heading {
+    font-size: 1.8rem;
+  }
+
+  .grid {
+    gap: 2rem;
+  }
+
+  .categoryCard {
+    padding: 1.6rem;
+    border-radius: 16px;
+    font-size: 1.05rem;
+  }
+
+  .viewAllContainer {
+    width: 16%;
+  }
+
+  .viewAllButton {
+    font-size: 1.1rem;
+    padding: 0.9rem 0.3rem;
+    margin-top: 2rem;
+  }
+}
+
+/* ===============================
+   RESPONSIVE: LARGE SCREENS (≥ 1280px)
+================================= */
+@media (min-width: 1280px) {
+  .categoryCard {
+    font-size: 1.5rem;
+  }
+
+  .viewAllContainer {
+    width: 6%;
+    /* Note: Fixed leading zero syntax */
+  }
+
+  .viewAllButton {
+    font-size: 1.6rem;
+    padding: 0.8rem 0.5rem;
+  }
+}
