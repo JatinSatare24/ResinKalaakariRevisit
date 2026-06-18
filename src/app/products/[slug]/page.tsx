@@ -2,11 +2,11 @@
 
 // import { products } from '@/data/products'
 import { useState, useEffect, useContext } from 'react'
-// import { CartContext } from "@/context/CartContext"
+import { CartContext } from "@/context/CartContext"
 import { useParams } from 'next/navigation'
 import ProductDetail from '@/components/ProductDetails/ProductDetail'
 import styles from '@/components/ProductDetails/ProductDetail.module.css'
-import ProductCard from '@/components/ProductCard/Productcard'
+import ProductCard from '@/components/ProductCard/ProductCard'
 import { client } from '@/lib/supabase'
 import Loader from '@/components/Spinner/Spinner'
 
@@ -36,7 +36,7 @@ export default function productDetail() {
     const supabase = client()
 
     const { slug } = useParams()
-    // const { addToCart } = useContext(CartContext)!
+    const { addToCart } = useContext(CartContext)!
 
     const [product, setProduct] = useState(null)
     const [relatedProducts, setRelatedProducts] = useState<product[]>([]);
@@ -102,7 +102,7 @@ export default function productDetail() {
     }
     return (
         <main>
-            {/* <ProductDetail addToCart={addToCart} product={product} /> */}
+            <ProductDetail addToCart={addToCart} product={product} />
             {relatedProducts.length > 0 && (
                 <section className={styles.relatedProductsContainer}>
                     <h2 className={styles.relatedProductsTitle}>Related Products</h2>
