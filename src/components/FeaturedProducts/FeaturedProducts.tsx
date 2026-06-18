@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { client } from '@/lib/supabase'
 import { ArrowRight } from "lucide-react";
 import styles from '@/components/FeaturedProducts/FeaturedProducts.module.css'
-import ProductCard from '../ProductCard/Productcard';
+import ProductCard from '../ProductCard/ProductCard';
 import Loader from '../Spinner/Spinner';
 
 export interface Products {
