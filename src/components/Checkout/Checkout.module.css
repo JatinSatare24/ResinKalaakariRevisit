@@ -1,0 +1,161 @@
+/* ==========================================================================
+   1. PAGE WRAPPER & HEADER
+   ========================================================================== */
+.pageWrapper {
+  min-height: 100vh;
+  background-color: #f9fafb;
+  padding-bottom: 80px;
+}
+
+.header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.headerContent {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ==========================================================================
+   2. MAIN LAYOUT & GRID
+   ========================================================================== */
+.mainContainer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.checkoutGrid {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile first */
+  gap: 24px;
+}
+
+.sectionCard {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 24px;
+}
+
+.sectionTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #111827;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   3. FORM ELEMENTS
+   ========================================================================== */
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.inputField {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+/* Resin Kalaakaari Gold Focus State */
+.inputField:focus {
+  border-color: #d4af37; 
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.1);
+}
+
+.rowInputs {
+  display: grid;
+  grid-template-columns: 1fr; 
+  gap: 16px;
+}
+
+/* ==========================================================================
+   4. SUMMARY SECTION & TOTALS
+   ========================================================================== */
+.stickySummary {
+  position: relative; /* Default for mobile */
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  color: #4b5563;
+  font-size: 0.95rem;
+}
+
+.grandTotalRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #111827;
+  border-top: 2px solid #f3f4f6;
+  padding-top: 16px;
+  margin-top: 16px;
+}
+
+/* ==========================================================================
+   5. BUTTONS & ACTIONS
+   ========================================================================== */
+.placeOrderBtn {
+  width: 100%;
+  background-color: #1a1a1a; /* Charcoal */
+  color: #ffffff;
+  padding: 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  margin-top: 24px;
+  transition: all 0.2s;
+}
+
+.placeOrderBtn:hover {
+  background-color: #000;
+  transform: translateY(-1px);
+}
+
+.placeOrderBtn:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE DESIGN
+   ========================================================================== */
+@media (min-width: 480px) {
+  .rowInputs {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .checkoutGrid {
+    grid-template-columns: 1.6fr 1fr; /* Slightly wider main area for readability */
+    gap: 40px;
+  }
+
+  .stickySummary {
+    position: sticky;
+    top: 100px; /* Adjust based on your Navbar height */
+  }
+}
